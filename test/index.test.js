@@ -159,7 +159,7 @@ beforeEach(function () {
 });
 
 describe("#test-queries()", () => {
-  const dbName = 'kings_restaurant'
+  const dbName = 'db_tests'
 
   before(function () {
     mysqlUtil.setConnection({
