@@ -18,21 +18,22 @@ jobs:
 
     services:
       mysql:
-        image: mysql/mysql-server:5.6
+        image: mysql:5.7
         env:
           MYSQL_PASSWORD: 123456789
           MYSQL_ROOT_PASSWORD: 123456789
           MYSQL_DATABASE: db_tests
           MYSQL_USER: root
         # options: --health-cmd="mysql health ping" --health-interval=10s --health-timeout=5s --health-retries=3
+        ports:
+          # Maps tcp port 3306 on service container to the host
+          - 3306:3306
         options: >-
           --health-cmd "mysql health ping"
           --health-interval 10s
           --health-timeout 10s
           --health-retries 10
-        ports:
-          # Maps tcp port 3306 on service container to the host
-        - 3306:3306
+
 
     steps:
       - name: Install and Setup NodeJS
