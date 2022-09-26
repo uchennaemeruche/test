@@ -72,8 +72,10 @@ const testQueries = [
     expects: function(result){
       expect(result).to.not.be.an('error')
       expect(result).to.be.an("array");
-      expect(result).length.to.be.greaterThanOrEqual(1);
-      expect(result[0]).to.include.keys("name", "age");
+      expect(result).length.to.be.greaterThanOrEqual(0);
+      if(result.length > 0){
+        expect(result[0]).to.include.keys("name", "age");
+      }
     }
   },
   {
