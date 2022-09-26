@@ -134,7 +134,7 @@ describe("#Raw Queries:", () => {
         CREATE DEFINER='${process.env.DB_USER}'@'localhost' PROCEDURE fetchCustomers()
         BEGIN
           
-            SELECT * FROM kings_restaurant.customers;
+            SELECT * FROM customers;
         END
       `);
       const result = await mysqlUtil.rawQuery("call fetchCustomers()");
