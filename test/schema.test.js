@@ -130,6 +130,13 @@ describe("#Raw Queries:", () => {
       
     });
     it("calls fetchCustomers stored procedure", async() => {
+      await mysqlUtil.rawQuery(`
+        CREATE PROCEDURE fetchCustomers()
+        BEGIN
+          
+            SELECT * FROM kings_restaurant.customers;
+        END
+      `);
       const result = await mysqlUtil.rawQuery("call fetchCustomers()");
       expect(result).to.not.be.an('error')
       expect(result).to.be.an("array")
