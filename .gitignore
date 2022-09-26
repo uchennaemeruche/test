@@ -1,0 +1,10 @@
+/node_modules
+.env
+/.env
+env
+.idea/
+.vscode/
+/coverage
+/lib
+.nyc_output/
+test/runner.sh

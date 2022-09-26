@@ -1,0 +1,53 @@
+{
+  "name": "mysql-query-util",
+  "version": "1.0.0",
+  "description": "A mySQL utility function for performing CRUD operations",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "npm run lint && npm run clean && babel ./src -d ./lib",
+    "lint": "eslint ./src",
+    "clean": "rimraf lib",
+    "test": "nyc mocha test/*.test.js --exit --require @babel/register --timeout 15000",
+    "test:db": "DB_HOST=localhost DB_PASSWORD=123456789 DB_USER=root nyc mocha test/*.test.js --exit --require @babel/register --timeout 15000",
+    "prepublishOnly": "npm run build"
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uchennaemeruche/mysql-util.git"
+  },
+  "keywords": [
+    "npm",
+    "node",
+    "mysql",
+    "javascript",
+    "crud",
+    "express",
+    "insert",
+    "procedure"
+  ],
+  "author": "Uchenna Emeruche",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uchennaemeruche/mysql-util/issues"
+  },
+  "homepage": "https://github.com/uchennaemeruche/mysql-util#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/register": "^7.14.5",
+    "chai": "^4.3.4",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.31.0",
+    "faker": "^5.5.3",
+    "mocha": "^9.0.3",
+    "mysql2": "^2.3.3",
+    "nyc": "^15.1.0",
+    "rimraf": "^3.0.2"
+  }
+}
