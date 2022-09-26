@@ -130,13 +130,14 @@ describe("#Raw Queries:", () => {
       
     });
     it("calls fetchCustomers stored procedure", async() => {
-      await mysqlUtil.rawQuery(`
+      const procedure = await mysqlUtil.rawQuery(`
         CREATE DEFINER='${process.env.DB_USER}'@'localhost' PROCEDURE fetchCustomers()
         BEGIN
           
             SELECT * FROM customers;
         END
       `);
+      console.log("PROCEDURE: ", procedure)
       const result = await mysqlUtil.rawQuery("call fetchCustomers()");
       expect(result).to.not.be.an('error')
       expect(result).to.be.an("array")
