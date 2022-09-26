@@ -131,7 +131,7 @@ describe("#Raw Queries:", () => {
     });
     it("calls fetchCustomers stored procedure", async() => {
       const procedure = await mysqlUtil.rawQuery(`
-        CREATE DEFINER='${process.env.DB_USER}'@'localhost' PROCEDURE fetchCustomers()
+        CREATE PROCEDURE fetchCustomers()
         BEGIN
           
             SELECT * FROM customers;
